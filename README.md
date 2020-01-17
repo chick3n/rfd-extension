@@ -1,3 +1,3 @@
 # RFD Extensions
 
-Chrome browser extension adding extensions to the RFD forums.
+Chrome browser extension adding extra features to the RFD forums.

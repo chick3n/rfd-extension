@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "SimpleRFD",
+    "name": "RFD Extensions",
     "description": "Extensions to the RFD forums.",
     "version": "1.0",
     "permissions": [
@@ -15,6 +15,9 @@
             ],
             "js": [
                 "content.js"
+            ],
+            "css": [
+                "styles.css"
             ]
         }
     ]
