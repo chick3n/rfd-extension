@@ -314,6 +314,27 @@ function injectPageDivider(number, container) {
     }
 }
 
+function injectPageLoader() {
+    const container = document.querySelector('ul.topiclist.topics');
+
+    const loader = document.createElement('li');
+    loader.classList.add('page-loading');
+    //<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+
+    const div = document.createElement('div');
+    div.classList.add('lds-ellipsis');
+
+    div.appendChild(document.createElement('div'));
+    div.appendChild(document.createElement('div'));
+    div.appendChild(document.createElement('div'));
+    div.appendChild(document.createElement('div'));
+    loader.appendChild(div);
+
+    container.appendChild(loader);
+
+    return loader;
+}
+
 function loadNextPage() {
     const request = new XMLHttpRequest();
     let pageMatches = rfd.nextPage.match(/([0-9]+)\/$/);
@@ -321,6 +342,8 @@ function loadNextPage() {
     if(pageMatches && pageMatches.length >= 2) {
         pageNumber = pageMatches[1];
     }
+
+    const loader = injectPageLoader();
 
     request.onreadystatechange = function() {
         if(request && request.readyState === XMLHttpRequest.DONE) {
@@ -334,6 +357,7 @@ function loadNextPage() {
                     decorate(topics);
                     const container = document.querySelector('ul.topiclist.topics');
                     injectPageDivider(pageNumber, container);
+                    container.removeChild(loader);
 
                     for(let id in topics) {
                         if(!(id in rfd.topics)) {

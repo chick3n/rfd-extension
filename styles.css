@@ -41,3 +41,7 @@ li.page-break {
     padding-bottom: 2px;
     font-weight: bold;
 }
+
+li.page-loading {
+    text-align: center;
+}

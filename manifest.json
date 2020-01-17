@@ -17,7 +17,8 @@
                 "content.js"
             ],
             "css": [
-                "styles.css"
+                "styles.css",
+                "loader.css"
             ]
         }
     ]
